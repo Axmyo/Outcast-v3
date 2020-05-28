@@ -1,1 +1,16 @@
-<h1>Bloxtel</h1>
+<!DOCTYPE html>
+<html>
+<h1>Bloxtel™</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
