@@ -10,7 +10,7 @@ const client = new Client();
 			embed.setTitle("Bot Info"),
 			embed.addField("Version:", "3.0")
 			embed.addField("Developer:", "Asher#7028")
-			embed.addField("Version Type:", "Alpha")
+			embed.addField("Version Type:", "Normal")
 			embed.addField("Last Updated:", "6/26/20")
 			embed.addField("Library:", "Discord.js v12")
 			embed.addField("Current Host Platform:", "Heroku")
