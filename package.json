@@ -1,12 +1,12 @@
 {
-  "name": "bloxtel-v3",
-  "version": "1.0.0",
+  "name": "bloxtel",
+  "version": "3.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "DevXML#9543",
+  "author": "Asher#7028",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.2.0",
