@@ -1,9 +1,9 @@
 try{
 var { prefix, owner } = require("./config.json");
 }catch(err)        
-	module.exports = { 
+	{module.exports = { 
             name: 'eval',
-	    cooldown: 0,
+	        cooldown: 0,
             description: 'Developer Command.',
             execute(message, args){
               if (message.content === prefix + "eval") {
@@ -17,8 +17,9 @@ var { prefix, owner } = require("./config.json");
  
                 message.channel.send(clean(evaled), {code:"xl"});
               } catch (err) {
-              message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-      		}    
-   	}
-	}
-}
+                    message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+      		    }    
+   	        }
+        }
+    }   
+};
