@@ -1,9 +1,9 @@
-const { Client, MessageEmbed } = require('discord.js');
-const { prefix, owner } = require('./config.json')
-const client = new Client();
-        module.exports = { 
+try{
+var { prefix, owner } = require("./config.json");
+}catch(err)        
+	module.exports = { 
             name: 'eval',
-        	  cooldown: 0,
+	    cooldown: 0,
             description: 'Developer Command.',
             execute(message, args){
               if (message.content === prefix + "eval") {
@@ -18,4 +18,7 @@ const client = new Client();
                 message.channel.send(clean(evaled), {code:"xl"});
               } catch (err) {
               message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-                
+      		}    
+   	}
+	}
+}
