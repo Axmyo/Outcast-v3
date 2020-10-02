@@ -1,9 +1,11 @@
 module.exports = {
 	name: 'kick',
 	description: 'Kicks a member out of a server.',
+	cooldown: 0,
+	aliases: ['boot'],
 	execute(message) {
-		 if (message.content.startsWith(';kick')) {
-			if (!message.member.hasPermission("KICK_MEMBERS")) return  message.channel.send("Error: Missing Permissions (`KICK_MEMBERS`)");
+if (!message.member.hasPermission("KICK_MEMBERS")) return  message.channel.send("Error: Missing Permissions (`KICK_MEMBERS`)");		
+ if (message.member.hasPermission("KICK_MEMBERS")) {
 			const user = message.mentions.users.first();
 			if (user) {
 			  const member = message.guild.member(user);
