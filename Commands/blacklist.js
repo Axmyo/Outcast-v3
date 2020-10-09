@@ -1,5 +1,5 @@
 const { Client, MessageEmbed } = require('discord.js');
-const { Owner, version } = require('../OutcastAssets/config.json');
+const { owner, version } = require('../OutcastAssets/config.json');
 const db = require ('quick.db'); // ES5 module
 // const client = new Client();
 module.exports = {
@@ -8,8 +8,9 @@ module.exports = {
     cooldown: 0,
     aliases: ['bl', 'botban', 'bban'],
     execute(message, args) {
-        if (message.author.id !== Owner)
+        if (message.author.id !== owner)
             return message.channel.send("Missing Permissions: OutcastCorp Staff or Bot Owner.");
+        if (message.author.id === owner) {
 
         const blacklist = new db.table('blacklist'); // make a new db table
         const user = args[0]; // the provided args --MUST-- be a user's ID
@@ -34,5 +35,6 @@ module.exports = {
         successembed.setTimestamp(),
         successembed.setColor("#00FF00"),
         message.channel.send(successembed);
-    }
+    )
+  }
 };
