@@ -1,5 +1,5 @@
 const { Client, MessageEmbed } = require('discord.js');
-var { version, picture } = require('../OutcastAssets/config.json');
+const { version, picture } = require('../OutcastAssets/config.json');
 const { execSync } = require('child_process');
 const hostname = execSync ('hostname').toString();
 const client = new Client();
