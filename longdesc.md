@@ -51,6 +51,10 @@
 * **Aliases:** wewilltakeover
 * **Description:** 666
 * **Usage:** Outcast 666
+### train
+* **Description:** Look at random train pictures (OutcastCorp API)
+* **Aliases:** N/A
+* **Usage:** Outcast train
 
 ## Utility:
 **Cooldowns** All commands in this category have a 5-second cooldown to prevent spamming/abuse.
