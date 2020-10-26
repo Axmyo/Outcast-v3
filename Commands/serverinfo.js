@@ -1,5 +1,6 @@
 const { Client, MessageEmbed, Guild } = require('discord.js');
 const { version, picture } = require('../OutcastAssets/config.json');
+const client = new Client();
 module.exports = { 
     name: 'serverinfo',
     description: 'Info about a user',
