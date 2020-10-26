@@ -1,6 +1,5 @@
 const { Client, MessageEmbed } = require('discord.js');
 const { version, picture } = require('../OutcastAssets/config.json');
-const client = new Client();
 module.exports = { 
     name: 'invite',
     description: 'Invite Outcast to your server',
