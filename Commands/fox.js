@@ -11,15 +11,13 @@ module.exports = {
       fetch(link)
       .then(res => res.json())
       .then(body => {
-        const embed = new MessageEmbed()
+        const embed = new MessageEmbed();
           embed.setColor('#FF8C00'),
-          embed.setTitle('Fox!'),
-          embed.addField('Inline field title', 'Some value here', true),
+          embed.setTitle('Foxxo!'),
           embed.setImage(body.image),
-          embed.setFooter(`Outcast ${version}`, "https://cdn.discordapp.com/avatars/677257480744730624/eb078b76eab8f80a6001b64cf4146fad.png?size=1024&.png")
-          embed.setTimestamp()
-
-        message.channel.send(embed);
+          embed.setFooter(`${version}`, `${picture}`),
+          embed.setTimestamp(),
+          message.channel.send(embed);
     });
   },
 };
