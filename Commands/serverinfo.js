@@ -1,14 +1,12 @@
 const { Client, MessageEmbed, Guild } = require('discord.js');
 const { version, picture } = require('../OutcastAssets/config.json')
-const client = new Client();
 module.exports = { 
     name: 'serverinfo',
-    cooldown: 5,
     description: 'Info about a user',
+    cooldown: 5,
     aliases: ['si', 'siv2', 'si2'],
     execute(message, client, args){
-
-                    const embed1 = new MessageEmbed()
+            const embed1 = new MessageEmbed()
             embed1.setTitle(`Info about ${message.guild.name} (This Guild).`),
             embed1.addField("Guild Name:", `${message.guild.name}`),
             embed1.addField("Guild ID:", `${message.guild.id}`),
