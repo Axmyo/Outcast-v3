@@ -4,9 +4,10 @@ const { version } = require("../OutcastAssets/config.json");
 
 module.exports = {
   'name':  "fox",
-  'cooldown': '5',
   'description': "Look at random fox pics, courtesy of randomfox.ca",
-  execute(message, args){
+  'cooldown': '5',
+  'aliases': ['foxxo'],
+   execute(message, args){
       const link = "https://randomfox.ca/floof/";
       fetch(link)
       .then(res => res.json())
