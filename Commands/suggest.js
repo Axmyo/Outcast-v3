@@ -1,5 +1,5 @@
-const { WebhookClient, MessageEmbed, Guild, Client } = require('discord.js');
-var { version, WebhookID, WebhookToken } = require('../OutcastAssets/config.json');
+const { WebhookClient, MessageEmbed, Client } = require('discord.js');
+var { version, picture, WebhookID, WebhookToken } = require('../OutcastAssets/config.json');
 const webhookClient = new WebhookClient(WebhookID, WebhookToken);
 const client = new Client();
 module.exports = {
@@ -7,15 +7,15 @@ module.exports = {
     description: 'Suggest command ideas for the bot!',
     cooldown: 5,
     aliases: ['submitsuggestion'],
-    execute(client, message, args) {
-        const data = message.args;
-        const guild = new Guild(client, data);
-        const SuggestionHook = new MessageEmbed();
-        SuggestionHook.setTitle(`Suggestion From ${guild.name}.`), //Fix this line
-        SuggestionHook.setDescription(data),
-        SuggestionHook.setFooter(`Outcast ${version}`, "https://cdn.discord.com/"),
-        SuggestionHook.setTimestamp(),
-        SuggestionHook.setThumbnail(guild.iconURL()),
-        webhookClient.send(SuggestionHook);
+    guildonly: true,
+    async execute(message, args) { // ...
+        const shit = args.slice(0).join(' ');
+        const embed = new MessageEmbed();
+        embed.setTitle(`Suggestion From ${message.author.tag} in Guild ${message.guild.name}.`), //Fix this line
+        embed.setDescription(`${shit}`),
+        embed.setFooter(`${version}`, `${picture}`),
+        embed.setTimestamp(),
+        embed.setThumbnail(message.guild.iconURL()),
+        webhookClient.send(embed);
     }
 };

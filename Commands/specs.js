@@ -1,5 +1,5 @@
 const { Client, MessageEmbed } = require('discord.js');
-const { version, picture, LastUpdated } = require('../OutcastAssets/config.json');
+const { version, picture, LastUpdated, changelog } = require('../OutcastAssets/config.json');
 const { execSync } = require('child_process');
 const hostname = execSync ('hostname').toString();
 const client = new Client();
@@ -17,12 +17,13 @@ const client = new Client();
                 const minutes = Math.floor(totalSeconds / 60);
                 const seconds = Math.floor(totalSeconds % 60);
                 const uptime = `${days} days, ${hours} hours, ${minutes} minutes, ${Math.round(seconds)} seconds`;
-                const embed = new MessageEmbed();
+                const embed = new MessageEmbed()
+                            
                 embed.setTitle("Bot Info"),
-                embed.setDescription("Changelog: Coming Soon!"),
+                embed.setDescription(`**Changelog:** \n \`\`${changelog}\`\``),
                 embed.addField("Version:", `${version}`),
                 embed.addField("Developer:", `${message.client.users.cache.get('613527205103927367').tag} and ${message.client.users.cache.get('490178047325110282').tag}`),
-                embed.addField("Version Type:", "Alpha"),
+                embed.addField("Version Type:", "Release"),
                 embed.addField("Last Updated:", `${LastUpdated}`),
                 embed.addField("Library:", "Discord.js v12"),
                 embed.addField("Current Host Server:", `${hostname}`),
