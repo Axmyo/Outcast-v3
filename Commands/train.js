@@ -12,14 +12,13 @@ module.exports = {
       fetch(link)
         .then(res => res.json())
         .then(body => {
-          const embed = new MessageEmbed()
-            embed.setColor('#FF8C00'),
-            embed.setTitle('Foxxo!'),
-            embed.setImage(body.image),
-            embed.setFooter(`${version}`, `${picture}`),
-            embed.setTimestamp(),
-
-          message.channel.send(embed);
+          const TrainEmbed = new MessageEmbed()
+          TrainEmbed.setColor('#FF8C00'),
+          TrainEmbed.setTitle('Train!'),
+          TrainEmbed.setImage(body.image),
+          TrainEmbed.setFooter(`${version}`, `${picture}`),
+          TrainEmbed.setTimestamp(),
+          message.channel.send(TrainEmbed);
       });
   },
 };
