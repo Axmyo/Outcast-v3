@@ -4,9 +4,9 @@ const db = require ('quick.db'); // ES5 module
 const client = new Client();
 module.exports = {
     name: "blacklist",
-    description: "Ban users from using the bot.",
+    description: "BAN BAN BAN",
     cooldown: 0,
-    aliases: ['bl', 'botban', 'bban'],
+    aliases: ['bl', 'botban', 'bban', 'gban', 'globalban'],
     execute(message, args) {
       if (!owner.includes(message.author.id)) { // ...				
         const PermissionEmbed = new MessageEmbed();
