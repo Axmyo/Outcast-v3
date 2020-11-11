@@ -1,5 +1,4 @@
 const { Client, MessageEmbed } = require('discord.js');
-const client = new Client();
 module.exports = {
     name: '666',
     cooldown: 5,
