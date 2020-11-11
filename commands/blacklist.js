@@ -1,7 +1,6 @@
 const { Client, MessageEmbed } = require('discord.js');
 const { owner, version, picture } = require('../OutcastAssets/config.json');
 const db = require ('quick.db'); // ES5 module
-const client = new Client();
 module.exports = {
     name: "blacklist",
     description: "BAN BAN BAN",
