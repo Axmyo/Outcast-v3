@@ -1,25 +1,25 @@
 const { MessageEmbed } = require('discord.js');
 const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
-    name: 'helpv2',
+    	name: 'helpv2',
 	description: 'Learn what commands I have to offer! <BETA>',	
-    cooldown: 5,
-    aliases: ['helpbeta', 'cmds'],
-    execute(message, args) {
-        const required = args[0].toLowerCase();
-        if (!args.length) {
-            const HelpEmbed = new MessageEmbed();
-            HelpEmbed.setTitle("Outcast Help Menu (v2):"),
-            HelpEmbed.addField('Bot-Related', `Bot-related commands`, true)
-            HelpEmbed.addField('Fun', `Commands to keep you entertained :3`, true),
-            HelpEmbed.addField('Developer', `Ash's toys.`, true),
-            HelpEmbed.addField('Moderation', `Commands made to keep your server safe.`, true),
-            HelpEmbed.addField('NSFW', `That stuff your parents warned you about.`, true),
-            HelpEmbed.addField('Utility', `You know. Helpful stuff.`, true),
-            HelpEmbed.setFooter(`${version}`, `${picture}`),
-            HelpEmbed.setColor('ff0000'),
-            message.channel.send(HelpEmbed);
-        }
+    	cooldown: 5,
+    	aliases: ['helpbeta', 'cmds'],
+    	execute(message, args) {
+        	const required = args[0].toLowerCase();
+        	if (!args.length) {
+			const HelpEmbed = new MessageEmbed();
+			HelpEmbed.setTitle("Outcast Help Menu (v2):"),
+			HelpEmbed.addField('Bot-Related', `Bot-related commands`, true)
+			HelpEmbed.addField('Fun', `Commands to keep you entertained :3`, true),
+			HelpEmbed.addField('Developer', `Ash's toys.`, true),
+			HelpEmbed.addField('Moderation', `Commands made to keep your server safe.`, true),
+			HelpEmbed.addField('NSFW', `That stuff your parents warned you about.`, true),
+			HelpEmbed.addField('Utility', `You know. Helpful stuff.`, true),
+			HelpEmbed.setFooter(`${version}`, `${picture}`),
+			HelpEmbed.setColor('ff0000'),
+			message.channel.send(HelpEmbed);
+		}
             if (required === 'bot') {
                 const BotHelpEmbed = new MessageEmbed();
                 BotHelpEmbed.setAuthor(`${message.author.tag}`, `${message.author.displayAvatarURL()}`)
