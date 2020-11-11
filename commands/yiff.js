@@ -19,49 +19,35 @@ module.exports = {
 			return;
 		};
 		if(message.channel.nsfw) {
-			let required = args[0].toLowerCase()
+			let required = args[0];
 			let yiff = require("yiff");
 			let config = { 
 			  creator: "Ash_#7028", 
 			  name: "Outcast",
 			  version: "Outcast v3.2.0"
 			};
+			if (!required) {
+				const ErrorEmbed = new MessageEmbed();
+				ErrorEmbed.setTitle("Error"),
+				ErrorEmbed.setDescription("You must define tags eg ``gay``, ``lesbian``, or ``straight``. Keep in mind though that these are not the only tags!"),
+				ErrorEmbed.addField("Error Code:", `404: Not Found`),
+				ErrorEmbed.setFooter(`${version}`, `${picture}`),
+				ErrorEmbed.setTimestamp(),
+				ErrorEmbed.setColor('ff0000'),
+				message.channel.send(ErrorEmbed);
+				return;
+			};
 			let e6 = new yiff.e621(config);
-			if (required === 'gay') {
-			    await e6.request("gay").then(res => {
-      				const embed = new MessageEmbed();      
-     				embed.setColor('ff0000'),
-      				embed.setTitle(`Yiff`),
-      				embed.setDescription(`**Image Link:** \n ${res.page})`),
-      				embed.setImage(res.image),
-      				embed.setFooter(`${version}`, `${picture}`),
-      				embed.setTimestamp(),
-      				message.channel.send(embed);
-      				});
-			    if (required === "lesbian") {
-					await e6.request("lesbian").then(res => {
-						const embed = new MessageEmbed();
-						embed.setColor('ff0000'),
-						embed.setTitle(`Yiff`),
-						embed.setDescription(`**Image Link:** \n ${res.page})`),
-						embed.setImage(res.image),
-						embed.setFooter(`${version}`, `${picture}`),
-						embed.setTimestamp(),
-						message.channel.send(embed);
-					});
-				if (required === "straight") {
-					await e6.request("straight").then(res => {
-						const embed = new MessageEmbed();
-						embed.setColor('ff0000'),
-						embed.setTitle(`Yiff`),
-						embed.setDescription(`**Image Link:** \n ${res.page})`),
-						embed.setImage(res.image),
-						embed.setFooter(`${version}`, `${picture}`),
-						embed.setTimestamp(),
-						message.channel.send(embed);
-					});
-				}
-			}		
+			await e6.request(`${required}`).then(res => {
+				const embed = new MessageEmbed();
+				embed.setColor('ff0000'),
+				embed.setTitle(`Yiff`),
+				embed.setDescription(`**Image Link:** \n ${res.page}`),
+				embed.setImage(res.image),
+				embed.setFooter(`${version}`, `${picture}`),
+				embed.setTimestamp(),
+				message.channel.send(embed);
+			});
 		}
 	}
-};	
+};
