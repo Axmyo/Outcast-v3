@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
     	name: 'helpv2',
-	description: 'Learn what commands I have to offer! <BETA>',	
+	description: 'Learn what commands I have to offer! <v2>',	
     	cooldown: 5,
     	aliases: ['helpbeta', 'cmds'],
     	execute(message, args) {
