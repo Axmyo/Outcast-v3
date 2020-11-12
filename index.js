@@ -2,7 +2,7 @@ const { readdirSync } = require('fs');
 const { Client, Collection, MessageEmbed } = require('discord.js');
 const db = require('quick.db');
 const { prefix, token, version, picture } = require("./OutcastAssets/config.json");
-const Default = prefix.shift.toLowerCase();
+const Default = prefix.shift().toLowerCase();
 const Outcast = new Client();
 const status = require ("./OutcastAssets/statuses.js");
 
