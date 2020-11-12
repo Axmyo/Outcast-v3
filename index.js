@@ -1,36 +1,36 @@
 const { readdirSync } = require('fs');
 const { Client, Collection, MessageEmbed } = require('discord.js');
-var { prefix, token, version } = require("./OutcastAssets/config.json");
-
-const client = new Client();
-client.commands = new Collection();
+const { prefix, token, version } = require("./OutcastAssets/config.json");
+const DefaultPrefix = prefix.shift.toLowerCase();
+const Outcast = new Client();
+Outcast.commands = new Collection();
 
 const commandFiles = readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+	Outcast.commands.set(command.name, command);
 }
 
 const cooldowns = new Collection();
 
-client.once("ready",async() =>{
-	console.log(`Bot online with ${client.guilds.cache.size} guilds.`);
+Outcast.once("ready",async() =>{
+	console.log(`Bot online with ${Outcast.guilds.cache.size} guilds.`);
 	console.warn('DO NOT FORGET TO CHANGE THE LAST EDITED DATE ON THE BOTINFO COMMAND! THIS IS VERY IMPORTANT FOR PICKING OUT OUTDATED SHARDS!!!!');
 	
-	client.user.setActivity(`${client.guilds.cache.size} guilds.`, {type:3})
+	Outcast.user.setActivity(`${Outcast.guilds.cache.size} guilds.`, {type:3})
  });
 
-client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+Outcast.on('message', message => {
+	if (!message.content.startsWith(DefaultPrefix) || message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice(DefaultPrefix.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
-	const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+	const command = Outcast.commands.get(commandName)
+		|| Outcast.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 	if (!command) return;
-	client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+	Outcast.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
 
@@ -42,7 +42,7 @@ client.on('message', message => {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 
 		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+			reply += `\nThe proper usage would be: \`${DefaultPrefxix}${command.name} ${command.usage}\``;
 		}
 
 		return message.channel.send(reply);
@@ -79,4 +79,4 @@ client.on('message', message => {
 	}
 });
 
-client.login(token);
+Outcast.login(token);
