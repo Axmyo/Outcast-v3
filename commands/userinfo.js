@@ -8,9 +8,9 @@ module.exports = {
     aliases: ['ui', 'newuserinfo', 'uiv2', 'ui2'],
     execute(message, args){
         if (message.member.presence.status === 'online') message.member.presence.status = '<:online:771508958128504863> Online';
-else if (message.member.presence.status === 'idle') message.member.presence.status = '<:idle:771508986158514206> Idle';
-else if (message.member.presence.status === 'dnd') message.member.presence.status = '<:dnd:771509016776933376> Do Not Disturb (DnD)';
-else if (message.member.presence.status === 'offline') message.member.presence.status = '<:invisible:771509297565794304> Offline/Invisible';
+        else if (message.member.presence.status === 'idle') message.member.presence.status = '<:idle:771508986158514206> Idle';
+        else if (message.member.presence.status === 'dnd') message.member.presence.status = '<:dnd:771509016776933376> Do Not Disturb (DnD)';
+        else if (message.member.presence.status === 'offline') message.member.presence.status = '<:invisible:771509297565794304> Offline/Invisible';
         let member = message.mentions.members.first();     
         if (!member) { // ...
             const embed1 = new MessageEmbed()
