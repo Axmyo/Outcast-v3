@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js');
 const { owner, version, picture } = require("../OutcastAssets/config.json");
-
 module.exports = { 
   name: 'eval',
   description: 'Developer Command.',
@@ -13,7 +12,7 @@ module.exports = {
       PermissionEmbed.addField('Missing Permission:', '\`\`MANAGE_MESSAGES\`\`'),
       PermissionEmbed.setFooter(`${version}`, `${picture}`),
       PermissionEmbed.setTimestamp(),
-      PermissionEmbed.setColor('ff0000'),
+      PermissionEmbed.setColor("ff0000"),
       message.channel.send(PermissionEmbed);
     }
     if (owner.includes(message.author.id)) { // ...
@@ -36,6 +35,7 @@ module.exports = {
         ErrorEmbed.setDescription(`An (expected) error has occured. Error: \n${error}\n`),
         ErrorEmbed.setFooter(`${version}`, `${picture}`),
         ErrorEmbed.setTimestamp(),
+        ErrorEmbed.setColor("ff0000"),
         message.channel.send(ErrorEmbed);
       }
     }
