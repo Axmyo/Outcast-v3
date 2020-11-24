@@ -1,25 +1,26 @@
 const { MessageEmbed } = require('discord.js');
-const { version, picture } = require("../OutcastAssets/config.json");
+const { version, picture, changelog } = require("../OutcastAssets/config.json");
 module.exports = {
-    	name: 'helpv2',
-	description: 'Learn what commands I have to offer! <v2>',	
-    	cooldown: 5,
-    	aliases: ['helpbeta', 'cmds'],
-    	execute(message, args) {
-        	const required = args[0].toLowerCase();
-        	if (!args.length) {
-			const HelpEmbed = new MessageEmbed();
-			HelpEmbed.setTitle("Outcast Help Menu (v2):"),
-			HelpEmbed.addField('Bot-Related', `Bot-related commands`, true)
-			HelpEmbed.addField('Fun', `Commands to keep you entertained :3`, true),
-			HelpEmbed.addField('Developer', `Ash's toys.`, true),
-			HelpEmbed.addField('Moderation', `Commands made to keep your server safe.`, true),
-			HelpEmbed.addField('NSFW', `That stuff your parents warned you about.`, true),
-			HelpEmbed.addField('Utility', `You know. Helpful stuff.`, true),
-			HelpEmbed.setFooter(`${version}`, `${picture}`),
-			HelpEmbed.setColor('ff0000'),
-			message.channel.send(HelpEmbed);
-		}
+    name: 'help',
+	description: 'Learn what commands I have to offer!',	
+    cooldown: 5,
+    aliases: ['helpv2', 'cmds'],
+    execute(message, args) {
+        const required = args[0];
+        if (!args.length) {
+            const HelpEmbed = new MessageEmbed();
+            HelpEmbed.setDescription(`**Changelog:** \n \`\`${changelog}\`\``),
+            HelpEmbed.setTitle("Outcast Help Menu (v2):"),
+            HelpEmbed.addField('Bot-Related', `Bot-related commands`, true),
+            HelpEmbed.addField('Fun', `Commands to keep you entertained :3`, true),
+            HelpEmbed.addField('Developer', `Commands made to help the developers keep abusers in check. (That includes you Jax)`, true),
+            HelpEmbed.addField('Moderation', `Commands made to keep your server safe.`, true),
+            HelpEmbed.addField('NSFW', `That stuff your parents warned you about.`, true),
+            HelpEmbed.addField('Utility', `You know. Helpful stuff.`, true),
+            HelpEmbed.setFooter(`${version}`, `${picture}`),
+            HelpEmbed.setColor('ff0000'),
+            message.channel.send(HelpEmbed);
+        }
             if (required === 'bot') {
                 const BotHelpEmbed = new MessageEmbed();
                 BotHelpEmbed.setAuthor(`${message.author.tag}`, `${message.author.displayAvatarURL()}`)
@@ -54,7 +55,7 @@ module.exports = {
                 const DeveloperHelpEmbed = new MessageEmbed();
                 DeveloperHelpEmbed.setAuthor(`${message.author.tag}`, `${message.author.displayAvatarURL()}`),
                 DeveloperHelpEmbed.setTitle('Developer'),
-                DeveloperHelpEmbed.setDescription(`**Total Commands In This Category:** 5 commands \n **Description:** Ash's toys >:3`),
+                DeveloperHelpEmbed.setDescription(`**Total Commands In This Category:** 5 commands \n **Description:** Commands made to help the developers keep abusers in check. (That includes you Jax)`),
                 DeveloperHelpEmbed.addField('blacklist', `**Aliases:** bl, globalban, gban \n **Description:** ${message.client.commands.get('blacklist').description}`),
                 DeveloperHelpEmbed.addField('blacklisted', `**Aliases:** globalbanlist, gbanlist \n **Description:** View who had their bot usage permissions revoked.`),
                 DeveloperHelpEmbed.addField('eval', `**Aliases:** N/A`),
