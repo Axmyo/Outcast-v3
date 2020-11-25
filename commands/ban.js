@@ -27,7 +27,10 @@ module.exports = {
 						const BannedEmbed = new MessageEmbed();
 						BannedEmbed.setTitle(``),
 						BannedEmbed.setDescription(``),
-						.send(BannedEmbed);           
+						BannedEmbed.addField("Reason:", `${reason}`),
+						BannedEmbed.addField("Moderator:", `${message.author.tag}`),
+						BannedEmbed.setFooter(`${version}`, `${picture}`),
+						.send(BannedEmbed);   
 						.ban({reason: reason})
 						.then(() => {
 						const SuccessEmbed = new MessageEmbed()
@@ -52,7 +55,6 @@ module.exports = {
 							const PermissionEmbed = new MessageEmbed();
 							PermissionEmbed.setTitle('Error: User Not Found'),
 							PermissionEmbed.addField('Error Code:', '404: Not Found'),
-							PermissionEmbed.addField('Solution:', 'Try running \`\`Outcast hackban\`\` (WARNING: NOT RELEASED YET!!!)'),
 							PermissionEmbed.setFooter(`${version}`, `${picture}`),
 							PermissionEmbed.setTimestamp(),
 							PermissionEmbed.setColor('ff0000'),
