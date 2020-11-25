@@ -19,10 +19,7 @@ module.exports = {
 		if (message.member.hasPermission("BAN_MEMBERS")) {
 			const user = message.mentions.users.first();
 			if (user) {
-				let reason = args.slice(1).join(' ');
-				if (reason === null) {
-					let reason === "No Reason Provided."
-				}
+				const reason = args.slice(1).join(' ');
 				const member = message.guild.member(user);
 				// If the member is in the guild
 				if (member) {
@@ -36,7 +33,7 @@ module.exports = {
 						BannedEmbed.setTimestamp(),
 						BannedEmbed.setColor("#ff0000"),
 						member.send(BannedEmbed);  
-						member.ban({reason: reason})
+						member.ban({reason: `${message.author.tag}:${reason}`})
 						.then(() => {
 						const SuccessEmbed = new MessageEmbed()
 						SuccessEmbed.setTitle("Success!"),
@@ -75,6 +72,9 @@ module.exports = {
 						Error3.setTimestamp(),
 						Error3.setColor('ff0000'),
 						message.channel.send(Error3);
+			}
+			if (reason === null) {
+				let reason === "No Reason Provided."
 			}
 		}
 	}
