@@ -53,7 +53,7 @@ module.exports = {
 			} else {
 				const Error3 = new MessageEmbed();
 				Error3.setTitle('Error: No User Mentioned'),
-				Error3.addField('Error Code:', ''),
+				Error3.addField('Error Code:', '1000'),
 				Error3.addField('Error Description:', 'You didn\'t mention a user to kick.'),
 				Error3.setFooter(`${version}`, `${picture}`),
 				Error3.setTimestamp(),
