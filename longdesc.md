@@ -10,13 +10,13 @@
 * **Required User Permissions:** BAN_MEMBERS
 * **Aliases:** N/A
 * **Description:** Ban users from the server.  
-* **Usage:** Outcast ban @Asher#7028
+* **Usage:** Outcast ban @Ash.#7028
 
 ### kick
 * **Description:** Kick users from the server.
 * **Aliases:** boot
 * **Required User Permissions:** KICK_MEMBERS
-* **Usage:** Outcast kick @Asher#7028
+* **Usage:** Outcast kick @Ash.#7028
 
 ### purge
 * **Aliases:** prune
@@ -61,7 +61,7 @@
 
 ### avatar
 * **Description:** Look at a persons or multiple persons' avatars.
-* **Usage:** Outcast avatar @Asher#7028 @Outcast#0153
+* **Usage:** Outcast avatar @Ash.#7028 @Outcast#0153
 * **Aliases:** pfp, icon
 
 ### help
@@ -89,9 +89,9 @@
 ### userinfo
 * **Description:** Get info on a user
 * **Aliases:** uiv2, newuserinfo
-* **Usage:** Outcast userinfo @Asher#7028
+* **Usage:** Outcast userinfo @Ash.#7028
 
 ### userinfov1
 * **Description:** Get info on a user
 * **Aliases:** uiv1, olduserinfo
-* **Usage:** Outcast userinfov1 @Asher#7028
+* **Usage:** Outcast userinfov1 @Ash.#7028
