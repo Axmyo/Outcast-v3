@@ -6,6 +6,6 @@ module.exports = {
   cooldown: 5,
   aliases: ["strike", ""],
   execute(message, args) {
-    const reason = args
+    const reason = 
   }
 };
