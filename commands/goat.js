@@ -12,11 +12,11 @@ module.exports = {
     .then(res => res.json())
     .then(body => {
         const GoatEmbed = new MessageEmbed()
-        .setColor("#ffffff"),
-        .setTitle("Goat!"),
-        .setImage(body.file),
-        .setFooter(`${version}`, `${picture}`),
-        .setTimestamp(),
+        	.setColor("#ffffff")
+        	.setTitle("Goat!")
+        	.setImage(body.file)
+        	.setFooter(`${version}`, `${picture}`)
+        	.setTimestamp()
         message.channel.send(GoatEmbed);
     });
   },
