@@ -4,7 +4,7 @@ const { prefix, version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
 	name: "prefix",
 	description: "Change the bot's prefix for your server.",
-	cooldown: 0,
+	cooldown: 60,
 	aliases: ["setprefix"],
 	async execute(message, args) {
     		const guildDB = new db.table("guilds"); // prefix variable, for easy reading :3
