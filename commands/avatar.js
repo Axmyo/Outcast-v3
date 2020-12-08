@@ -9,20 +9,20 @@ module.exports = {
       let member = message.mentions.members.first();     
       if (!member) { // ...
       const embed1 = new MessageEmbed()
-      embed1.setAuthor(message.author),
-      embed1.setTitle("Avatar:"),
-      embed1.setImage(message.author.displayAvatarURL({format: 'png', dynamic: true, size: 4096}))
-      embed1.setFooter(`${version}`, `${picture}`)
-      embed1.setTimestamp()
+      .setAuthor(message.author)
+      .setTitle("Avatar:")
+      .setImage(message.author.displayAvatarURL({format: 'png', dynamic: true, size: 4096}))
+      .setFooter(`${version}`, `${picture}`)
+      .setTimestamp()
       message.channel.send(embed1);
     };
 
     message.mentions.users.map(user => {   
       const embed2 = new MessageEmbed()
-      embed2.setTitle(`${user.username}'s avatar:`)
-      embed2.setImage(user.displayAvatarURL({format: 'png', dynamic: true, size: 4096}))
-      embed2.setFooter(`${version}`, `${picture}`)
-      embed2.setTimestamp()
+      .setTitle(`${user.username}'s avatar:`)
+      .setImage(user.displayAvatarURL({format: 'png', dynamic: true, size: 4096}))
+      .setFooter(`${version}`, `${picture}`)
+      .setTimestamp()
     message.channel.send(embed2);
     });
   },
