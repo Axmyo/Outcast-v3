@@ -8,13 +8,13 @@ module.exports = {
     aliases: ['bl', 'botban', 'bban', 'gban', 'globalban'],
     execute(message, args) {
       if (!owner.includes(message.author.id)) { // ...				
-        const PermissionEmbed = new MessageEmbed();
-	PermissionEmbed.setTitle('Error: Missing Permisssions'),
-	PermissionEmbed.addField('Error Code:', '403: Forbidden'),
-	PermissionEmbed.addField('Missing Permission:', '\`\`BOT_OWNER\`\`'),
-	PermissionEmbed.setFooter(`${version}`, `${picture}`),
-	PermissionEmbed.setTimestamp(),
-	PermissionEmbed.setColor('ff0000'),
+        const PermissionEmbed = new MessageEmbed()
+	.setTitle('Error: Missing Permisssions')
+	.addField('Error Code:', '403: Forbidden')
+	.addField('Missing Permission:', '\`\`BOT_OWNER\`\`')
+	.setFooter(`${version}`, `${picture}`)
+	.setTimestamp()
+	.setColor('ff0000')
         message.channel.send(PermissionEmbed);
         return
       };
@@ -32,24 +32,24 @@ module.exports = {
         
         let isBlacklisted = blacklist.fetch (user);
         if (isBlacklisted !== null) {
-          const ExistenentialEmbed = new MessageEmbed();
-          ExistenentialEmbed.setTitle('Error: User Already Exists In Database'),
-          ExistenentialEmbed.addField('Error Code:', '409: Resource already exists in the database.'),
-          ExistenentialEmbed.addField('Error Description:', 'The user has already been blacklisted you DUNCE.'),
-          ExistenentialEmbed.setFooter(`${version}`, `${picture}`),
-          ExistenentialEmbed.setTimestamp(),
-          ExistenentialEmbed.setColor('ff0000'),
+          const ExistenentialEmbed = new MessageEmbed()
+          .setTitle('Error: User Already Exists In Database')
+          .addField('Error Code:', '409: Resource already exists in the database.')
+          .addField('Error Description:', 'The user has already been blacklisted you DUNCE.')
+          .setFooter(`${version}`, `${picture}`)
+          .setTimestamp()
+          .setColor('ff0000')
           message.channel.send(ExistenentialEmbed);   
           return;
         }       
         blacklist.set (user, true, reason);
           
-        const successembed = new MessageEmbed();
-        successembed.setTitle('Success!'),
-        successembed.setDescription(`Successfully blacklisted ${message.client.users.cache.get(user).tag} for reason ${reason}`),
-        successembed.setFooter(`${version}`, `${picture}`),
-        successembed.setTimestamp(),
-        successembed.setColor("#00FF00"),
+        const successembed = new MessageEmbed()
+        .setTitle('Success!')
+        .setDescription(`Successfully blacklisted ${message.client.users.cache.get(user).tag} for reason ${reason}`)
+        .setFooter(`${version}`, `${picture}`)
+        .setTimestamp()
+        .setColor("#00FF00")
         message.channel.send(successembed);
         return;
       }
