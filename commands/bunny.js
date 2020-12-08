@@ -1,5 +1,5 @@
-const { MessageEmbed } = require('discord.js');
-const animals = require('random-animals-api'); 
+const { MessageEmbed } = require("discord.js");
+const animals = require("random-animals-api"); 
 const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
   name:  "bunny",
@@ -23,7 +23,7 @@ module.exports = {
       .setDescription(`An (expected) error has occured. Error: \n${error}\n`)
       .setFooter(`${version}`, `${picture}`)
       .setTimestamp()
-      .setColor("FF0000")
+      .setColor("#FF0000")
       message.channel.send(ErrorEmbed);
       });
   },
