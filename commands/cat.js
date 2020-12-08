@@ -1,5 +1,5 @@
-const { MessageEmbed } = require('discord.js');
-const fetch = require('node-fetch');
+const { MessageEmbed } = require("discord.js");
+const fetch = require("node-fetch");
 const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
   name:  "cat",
@@ -11,12 +11,12 @@ module.exports = {
       fetch(link)
         .then(res => res.json())
         .then(body => {
-          const CatEmbed = new MessageEmbed();
-          CatEmbed.setColor('#FF8C00'),
-          CatEmbed.setTitle('Kitty!'),
-          CatEmbed.setImage(body.file),
-          CatEmbed.setFooter(`${version}`, `${picture}`),
-          CatEmbed.setTimestamp(),
+          const CatEmbed = new MessageEmbed()
+          .setColor("#FF8C00")
+          .setTitle("Kitty!")
+          .setImage(body.file)
+          .setFooter(version, picture)
+          .setTimestamp()
           message.channel.send(CatEmbed);
       });
   },
