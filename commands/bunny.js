@@ -8,22 +8,22 @@ module.exports = {
   aliases: ['rabbit'],
   async execute(message, args){
   await animals.bunny().then(url => {
-    const embed = new MessageEmbed();      
-    embed.setColor('#FFD700'),
-    embed.setTitle(`Bunny!`),
-    embed.setDescription(`**[image link](${url})**`),
-    embed.setImage(url),
-    embed.setFooter(`${version}`, `${picture}`),
-    embed.setTimestamp(),
-    message.channel.send(embed);        
+    const BunnyEmbed = new MessageEmbed()
+    .setColor("#FFD700")
+    .setTitle(`Bunny!`)
+    .setDescription(`**[image link](${url})**`)
+    .setImage(url)
+    .setFooter(`${version}`, `${picture}`)
+    .setTimestamp()
+    message.channel.send(BunnyEmbed);
     }).catch((error) => {
       console.error(error)
-      const ErrorEmbed = new MessageEmbed();
-      ErrorEmbed.setTitle("Error!"),
-      ErrorEmbed.setDescription(`An (expected) error has occured. Error: \n${error}\n`),
-      ErrorEmbed.setFooter(`${version}`, `${picture}`),
-      ErrorEmbed.setTimestamp(),
-      ErrorEmbed.setColor('ff0000'),
+      const ErrorEmbed = new MessageEmbed()
+      .setTitle("Error!")
+      .setDescription(`An (expected) error has occured. Error: \n${error}\n`)
+      .setFooter(`${version}`, `${picture}`)
+      .setTimestamp()
+      .setColor("FF0000")
       message.channel.send(ErrorEmbed);
       });
   },
