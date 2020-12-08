@@ -9,13 +9,13 @@ module.exports = {
 	aliases: ['bllogs', 'devlogs'],
 	execute(message, args) {
 		if (!owner.includes(message.author.id)) { // ...
-		        const PermissionEmbed = new MessageEmbed();
-			PermissionEmbed.setTitle('Error: Missing Permisssions'),
-			PermissionEmbed.addField('Error Code:', '403: Forbidden'),
-			PermissionEmbed.addField('Missing Permission:', '\`\`BOT_OWNER\`\`'),
-			PermissionEmbed.setFooter(`${version}`, `${picture}`),
-			PermissionEmbed.setTimestamp(),
-			PermissionEmbed.setColor('ff0000'),
+		        const PermissionEmbed = new MessageEmbed()
+			.setTitle('Error: Missing Permisssions')
+			.addField('Error Code:', '403: Forbidden')
+			.addField('Missing Permission:', '\`\`BOT_OWNER\`\`')
+			.setFooter(`${version}`, `${picture}`)
+			.setTimestamp()
+			.setColor("#FF0000")
         		message.channel.send(PermissionEmbed);
         		return
       			};
@@ -26,12 +26,12 @@ module.exports = {
 
 		
 		
-			const LogsEmbed= new MessageEmbed();
-			LogsEmbed.setTitle("Blacklisted Users"),
-			LogsEmbed.setDescription(JSON.stringify(blacklist.all)),
-			LogsEmbed.setTimestamp(),
-			LogsEmbed.setFooter(`${version}`, `${picture}`),
-			LogsEmbed.setColor(`#00000`),
+			const LogsEmbed = new MessageEmbed()
+			.setTitle("Blacklisted Users")
+			.setDescription(JSON.stringify(blacklist.all))
+			.setTimestamp()
+			.setFooter(`${version}`, `${picture}`)
+			.setColor("#00000")
 			message.channel.send(LogsEmbed);
 		}
 	}
