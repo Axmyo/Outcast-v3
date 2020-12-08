@@ -14,7 +14,7 @@ module.exports = {
 	.addField('Missing Permission:', '\`\`BOT_OWNER\`\`')
 	.setFooter(`${version}`, `${picture}`)
 	.setTimestamp()
-	.setColor('ff0000')
+	.setColor("#ff0000")
         message.channel.send(PermissionEmbed);
         return
       };
@@ -38,7 +38,7 @@ module.exports = {
           .addField('Error Description:', 'The user has already been blacklisted you DUNCE.')
           .setFooter(`${version}`, `${picture}`)
           .setTimestamp()
-          .setColor('ff0000')
+          .setColor("#ff0000")
           message.channel.send(ExistenentialEmbed);   
           return;
         }       
