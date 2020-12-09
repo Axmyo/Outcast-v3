@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-
+const { version, picture } = require)"
 
 module.exports = {
   name: "mute",
@@ -9,4 +9,4 @@ module.exports = {
   execute(message, args) {
     
   }
-}
+};
