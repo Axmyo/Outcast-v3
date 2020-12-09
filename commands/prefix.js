@@ -19,34 +19,34 @@ module.exports = {
       				if (args[2] === "-s") {
         				providedPrefix = `${providedPrefix} `;	
 				} else {
-        				const UsedSpaceInsteadOfFlagEmbed = new MessageEmbed();
-					UsedSpaceInsteadOfFlagEmbed.setTitle("Error: Attempted To Use Actual Space Instead of Flag"),
-					UsedSpaceInsteadOfFlagEmbed.addField("Error Code",  `600`),
-					UsedSpaceInsteadOfFlagEmbed.addField("Possible Fixes:", `When supplying a prefix with a space, add the space then \`-s\`.`),
-					UsedSpaceInsteadOfFlagEmbed.setFooter(`${version}`, `${picture}`),
-					UsedSpaceInsteadOfFlagEmbed.setColor("#ff0000"),
-					UsedSpaceInsteadOfFlagEmbed.setTimestamp(),
+        				const UsedSpaceInsteadOfFlagEmbed = new MessageEmbed()
+					.setTitle("Error: Attempted To Use Actual Space Instead of Flag")
+					.addField("Error Code",  "600")
+					.addField("Possible Fixes:", `When supplying a prefix with a space, add the space then \`-s\`.`)
+					.setFooter(version, picture)
+					.setColor("#FF0000")
+					.setTimestamp()
 					message.channel.send(UsedSpaceInsteadOfFlagEmbed);
 			      	};
     				if (setting) {
       					if (setting === "set") {
         					await guildDB.set(`${message.channel.guild.id}.prefix`, providedPrefix);
-						const SetSuccessEmbed = new MessageEmbed();
-						SetSuccessEmbed.setTitle("Success!"),
-						SetSuccessEmbed.setDescription(`Successfully set ${message.guild.name}\`s prefix to ${providedPrefix}.`),
-						SetSuccessEmbed.setFooter(`${version}`, `${picture}`),
-						SetSuccessEmbed.setColor("#39FF14"),
-						SetSuccessEmbed.setTimestamp(),
+						const SetSuccessEmbed = new MessageEmbed()
+						.setTitle("Success!")
+						.setDescription(`Successfully set ${message.guild.name}\`s prefix to ${providedPrefix}.`)
+						.setFooter(`${version}`, `${picture}`)
+						.setColor("#39FF14")
+						.setTimestamp()
 						message.channel.send(SetSuccessEmbed);
       					}
 					if (setting === "reset") {
 						await guildDB.delete(`${message.channel.guild.id}.prefix`);
-						const ResetSuccessEmbed = new MessageEmbed();
-						ResetSuccessEmbed.setTitle("Success!"),
-						ResetSuccessEmbed.setDescription(`Successfully reset ${message.guild.name}\`s prefix to ${prefix}.`),
-						ResetSuccessEmbed.setFooter(`${version}`, `${picture}`),
-						ResetSuccessEmbed.setColor("#39FF14"),
-						ResetSuccessEmbed.setTimestamp(),
+						const ResetSuccessEmbed = new MessageEmbed()
+						ResetSuccessEmbed.setTitle("Success!")
+						.setDescription(`Successfully reset ${message.guild.name}\`s prefix to the default prefix (\`\`Outcast \`\`).`)
+						.setFooter(version, picture)
+						.setColor("#39FF14")
+						.setTimestamp()
 						message.channel.send(ResetSuccessEmbed);
 						return;
 					}
