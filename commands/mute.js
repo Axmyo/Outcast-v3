@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { version, picture } = require)"
+const { version, picture } = require("../OutcastAssets/config.json");
 
 module.exports = {
   name: "mute",
