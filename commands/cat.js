@@ -4,7 +4,7 @@ const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
   name:  "cat",
   description: "Look at random cat pics, courtesy of random.cat/meow",
-  cooldown: '5',
+  cooldown: 5,
   aliases: ['kitty', 'kitten'],
   execute(message, args){
       const link = "https://aws.random.cat/meow";
