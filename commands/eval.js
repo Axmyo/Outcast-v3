@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 const { owner, version, picture } = require("../OutcastAssets/config.json");
 module.exports = { 
   name: 'eval',
@@ -6,13 +6,13 @@ module.exports = {
   cooldown: 0,
   execute(message, args){
     if (!owner.includes(message.author.id)) { // ...
-      const PermissionEmbed = new MessageEmbed();
-      PermissionEmbed.setTitle('Error: Missing Permisssions'),
-      PermissionEmbed.addField('Error Code:', '403: Forbidden'),
-      PermissionEmbed.addField('Missing Permission:', '\`\`MANAGE_MESSAGES\`\`'),
-      PermissionEmbed.setFooter(`${version}`, `${picture}`),
-      PermissionEmbed.setTimestamp(),
-      PermissionEmbed.setColor("ff0000"),
+      const PermissionEmbed = new MessageEmbed()
+      .setTitle("Error: Missing Permisssions")
+      .addField("Error Code:", '403: Forbidden')
+      .addField("Missing Permission:", '\`\`BOT_OWNER\`\`')
+      .setFooter(version, picture)
+      .setTimestamp()
+      .setColor("#FF0000")
       message.channel.send(PermissionEmbed);
     }
     if (owner.includes(message.author.id)) { // ...
@@ -23,19 +23,19 @@ module.exports = {
         if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
 
-        const embed = new MessageEmbed();
-        embed.setTitle("Output:"),
-        embed.setDescription(evaled),
-        embed.setFooter(`${version}`, `${picture}`),
-        embed.setTimestamp(),
-        message.channel.send(embed);
+        const OutputEmbed = new MessageEmbed()
+        .setTitle("Output:")
+        .setDescription(evaled)
+        .setFooter(version, picture)
+        .setTimestamp()
+        message.channel.send(OutputEmbed);
       } catch (error) {
-        const ErrorEmbed = new MessageEmbed();
-        ErrorEmbed.setTitle("Error!"),
-        ErrorEmbed.setDescription(`An (expected) error has occured. Error: \n${error}\n`),
-        ErrorEmbed.setFooter(`${version}`, `${picture}`),
-        ErrorEmbed.setTimestamp(),
-        ErrorEmbed.setColor("ff0000"),
+        const ErrorEmbed = new MessageEmbed()
+        .setTitle("Error!")
+        .setDescription(`An (expected) error has occured. Error: \n${error}\n`)
+        .setFooter(version, picture)
+        .setTimestamp()
+        .setColor("#FF0000")
         message.channel.send(ErrorEmbed);
       }
     }
