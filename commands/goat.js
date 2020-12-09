@@ -1,10 +1,10 @@
-const { MessageEmbed } = require('discord.js');
-const fetch = require('node-fetch');
+const { MessageEmbed } = require("discord.js");
+const fetch = require("node-fetch");
 const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
   name:  "goat",
   description: "Look at random goat pics, courtesy of placegoat.com.",
-  cooldown: '5',
+  cooldown: 5,
   aliases: [],
   execute(message, args){
     const link = "https://placegoat.com/200/200";
