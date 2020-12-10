@@ -1,10 +1,10 @@
-const { readdirSync } = require('fs');
-const { Client, Collection, MessageEmbed } = require('discord.js');
-const db = require('quick.db');
+const { readdirSync } = require("fs");
+const { Client, Collection, MessageEmbed } = require("discord.js");
+const db = require("quick.db");
 const { prefix, token, version, picture } = require("./OutcastAssets/config.json");
+const status = require ("./OutcastAssets/statuses.js");
 const Default = prefix.args[0].shift().toLowerCase();
 const Outcast = new Client();
-const status = require ("./OutcastAssets/statuses.js");
 
 Outcast.commands = new Collection();
 
@@ -72,14 +72,13 @@ Outcast.on('message', message => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			const CooldownEmbed = new MessageEmbed();
-			CooldownEmbed.setTitle("Automated Cooldown System"),
-			CooldownEmbed.setDescription(`The cooldown for this command is ${cooldownAmount}. Please wait ${timeLeft.toFixed(1)} more second(s) before running  \`${Default}${command.name}\` again.`),
-			CooldownEmbed.setFooter(`${version}`, `${picture}`),
-			CooldownEmbed.setTimestamp(),
-			CooldownEmbed.setColor('ff0000'),
-			message.channel.send(CooldownEmbed);	
-			return;	
+			const CooldownEmbed = new MessageEmbed()
+			.setTitle("Automated Cooldown System")
+			.setDescription(`The cooldown for this command is ${cooldownAmount}. Please wait ${timeLeft.toFixed(1)} more second(s) before running  \`${Default}${command.name}\` again.`)
+			.setFooter(version, picture)
+			.setTimestamp()
+			CooldownEmbed.setColor("#FF0000")
+			return message.channel.send(CooldownEmbed);	
 		}
 	};		
 
@@ -90,13 +89,13 @@ Outcast.on('message', message => {
 		command.execute(message, args);
 	} catch (error) {
 		console.error(error);
-		const ErrorEmbed = new MessageEmbed();
-		ErrorEmbed.setTitle("Error!"),
-		ErrorEmbed.setDescription(`An unknown error has occured!`),
-		ErrorEmbed.addField('Error:', `${error}`),
-		ErrorEmbed.setColor('ff0000'),
-		ErrorEmbed.setFooter(`${version}`, `${picture}`),
-		message.channel.send(ErrorEmbed);
+		const ErrorEmbed = new MessageEmbed()
+		.setTitle("Error!")
+		.setDescription(`An unknown error has occured!`)
+		.addField('Error:', error)
+		.setColor("#FF0000")
+		.setFooter(version, picture)
+		return message.channel.send(ErrorEmbed);
 	}
 });
 Outcast.login(token);
