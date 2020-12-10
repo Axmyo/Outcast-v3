@@ -2,22 +2,21 @@ const { Client, MessageEmbed, Guild } = require('discord.js');
 const { version, picture } = require('../OutcastAssets/config.json')
 const client = new Client();
 module.exports = { 
-    name: 'serverinfo',
-    cooldown: 5,
-    description: 'Info about a user',
-    aliases: ['si', 'siv2', 'si2'],
-    execute(message, client, args){
-
-                    const embed1 = new MessageEmbed()
-            embed1.setTitle(`Info about ${message.guild.name} (This Guild).`),
-            embed1.addField("Guild Name:", `${message.guild.name}`),
-            embed1.addField("Guild ID:", `${message.guild.id}`),
-            embed1.addField("Guild Created On:", `${message.guild.createdAt}`),
-            embed1.addField("Number Of Roles:",  `${message.guild.roles}`),
-            embed1.setColor("ff0000"),
-            embed1.setFooter(`${version}`, `${picture}`),
-            embed1.setTimestamp(),
-            embed1.setThumbnail(message.guild.iconURL()),
-            message.channel.send(embed1);
+	name: 'serverinfo',
+	description: 'Get info about a server.',
+	cooldown: 5,
+	aliases: ['si', 'siv2', 'si2'],
+	execute(message, client, args){
+		const ServerInfoEmbed = new MessageEmbed()
+		.setTitle(`Info about ${message.guild.name} (This Guild).`)
+		.addField("Guild Name:", `${message.guild.name}`)
+		.addField("Guild ID:", `${message.guild.id}`)
+		.addField("Guild Created On:", `${message.guild.createdAt}`)
+		.addField("Number Of Roles:",  `${message.guild.roles}`)
+		.setColor("#FF0000")
+		.setFooter(version, picture)
+		.setTimestamp()
+		.setThumbnail(message.guild.iconURL())
+		message.channel.send(ServerInfoEmbed);
 	}  
 };
