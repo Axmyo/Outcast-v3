@@ -1,22 +1,20 @@
-const { Client, MessageEmbed } = require('discord.js');
-const { owner, version, picture } = require('../OutcastAssets/config.json');
-const db = require ('quick.db'); // ES5 module
+const { Client, MessageEmbed } = require("discord.js");
+const { owner, version, picture } = require("../OutcastAssets/config.json");
+const db = require ("quick.db");
 module.exports = {
     name: "unblacklist",
-    description: "OWNER ONLY!!!!! Ban users from using the bot.",
-    cooldown: 0,
-    aliases: ['unbl', 'unbotban'],
+    description: "Unban users from using the bot.",
+    aliases: ['unbl', 'unbotban', 'ungban'],
     execute(message, args) {
         if (!owner.includes(message.author.id)) { // ...   
-            const PermissionEmbed = new MessageEmbed();
-            PermissionEmbed.setTitle('Error: Missing Permisssions'),
-            PermissionEmbed.addField('Error Code:', '403: Forbidden'),
-            PermissionEmbed.addField('Missing Permission:', '\`\`BOT_OWNER\`\`'),
-            PermissionEmbed.setFooter(`${version}`, `${picture}`),
-            PermissionEmbed.setTimestamp(),
-            PermissionEmbed.setColor('ff0000'),
-            message.channel.send(PermissionEmbed);
-            return;
+            const PermissionEmbed = new MessageEmbed()
+            .setTitle("Error: Missing Permisssions")
+            .addField('Error Code:', '403: Forbidden')
+            .addField('Missing Permission:', '\`\`BOT_OWNER\`\`')
+            .setFooter(version, picture)
+            .setTimestamp()
+            .setColor("#FF0000")
+            return message.channel.send(PermissionEmbed);
         };
         if (owner.includes(message.author.id)) { // ...
             const blacklist = new db.table('blacklist'); // find the db table 'blacklist'
@@ -28,14 +26,13 @@ module.exports = {
                     
             blacklist.delete(user); // set their ID in the db for bl
             
-            const successembed = new MessageEmbed();
-            successembed.setTitle('Success!'),
-            successembed.setDescription(`Successfully removed ${message.client.users.cache.get(user).tag} from the blacklist.`),
-            successembed.setFooter(`${version}`, `${picture}`),
-            successembed.setTimestamp(),
-            successembed.setColor('#00FF00'),
-            message.channel.send(successembed);
-            return;
+            const SuccessEmbed = new MessageEmbed()
+            .setTitle("Success!")
+            .setDescription(`Successfully removed ${message.client.users.cache.get(user).tag} from the blacklist.`)
+            .setFooter(version, picture)
+            .setTimestamp()
+            .setColor("#00FF00")
+            return message.channel.send(SuccessEmbed);
       }  
     }
 };
