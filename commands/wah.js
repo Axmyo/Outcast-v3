@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
-const fetch = require('node-fetch');
-const { version, picture } = require('../OutcastAssets/config.json');
+const fetch = require("node-fetch");
+const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
 	name: "wah",
 	description: "Get some wahs, courtesy of somerandomapi",
@@ -11,12 +11,12 @@ module.exports = {
         	fetch(link)
         	.then(res => res.json())
         	.then(body => {
-            		const WahEmbed = new MessageEmbed();
-            		WahEmbed.setColor("#FF0000"),
-            		WahEmbed.setTitle('Wah!'),
-            		WahEmbed.setImage(body.link),
-            		WahEmbed.setFooter(`${version}`, `${picture}`),
-            		WahEmbed.setTimestamp(),
+            		const WahEmbed = new MessageEmbed()
+            		.setColor("#FF0000")
+            		.setTitle("Wah!")
+            		.setImage(body.link)
+            		.setFooter(version, picture)
+            		.setTimestamp()
             		message.channel.send(WahEmbed);
       		});
 	}
