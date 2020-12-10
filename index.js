@@ -20,7 +20,7 @@ const cooldowns = new Collection();
 Outcast.once("ready",async() =>{
 const statuses = await status (Outcast);
 	console.log(`Bot online with ${Outcast.guilds.cache.size} guilds.`);
-	console.warn('DO NOT FORGET TO CHANGE THE LAST EDITED DATE ON THE BOTINFO COMMAND! THIS IS VERY IMPORTANT FOR PICKING OUT OUTDATED SHARDS!!!!');
+	console.warn('Don\'t forget to bump last edited date and version on config.json.');
 	
 
     setInterval(() => {
