@@ -1,11 +1,11 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 const yiff = require("yiff");
-const { version, picture } = require('../OutcastAssets/config.json');
+const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
-	name: 'yiff',
-	description: 'Furry porn.',
+	name: "yiff",
+	description: "Furry porn.",
 	cooldown: 5,
-	aliases: ['furryporn'],
+	aliases: ["furryporn"],
 	async execute(message, args) {
 		if(!message.channel.nsfw) {
 			const NotNSFWEmbed = new MessageEmbed()
@@ -23,7 +23,7 @@ module.exports = {
 			let config = { 
 			  creator: "Ash.#7028", 
 			  name: "Outcast",
-			  version: "Outcast v3.2.1.1"
+			  version: "Outcast v4"
 			};
 			if (!required) {
 				const ErrorEmbed = new MessageEmbed()
