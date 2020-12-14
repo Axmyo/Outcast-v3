@@ -6,24 +6,24 @@ module.exports = {
   cooldown: 5,
   aliases: ['icon', 'pfp'],
   execute(message, args) {
-      let member = message.mentions.members.first();     
-      if (!member) { // ...
+    let member = message.mentions.members.first();     
+    if (!member) { // ...
       const embed1 = new MessageEmbed()
-      .setAuthor(message.author)
-      .setTitle("Avatar:")
-      .setImage(message.author.displayAvatarURL({format: 'png', dynamic: true, size: 4096}))
-      .setFooter(`${version}`, `${picture}`)
-      .setTimestamp()
+        .setAuthor(message.author)
+        .setTitle("Avatar:")
+        .setImage(message.author.displayAvatarURL({format: 'png', dynamic: true, size: 512}))
+        .setFooter(version, picture)
+        .setTimestamp()
       message.channel.send(embed1);
     };
 
     message.mentions.users.map(user => {   
       const embed2 = new MessageEmbed()
-      .setTitle(`${user.username}'s avatar:`)
-      .setImage(user.displayAvatarURL({format: 'png', dynamic: true, size: 4096}))
-      .setFooter(`${version}`, `${picture}`)
-      .setTimestamp()
-    message.channel.send(embed2);
+        .setTitle(`${user.username}'s avatar:`)
+        .setImage(user.displayAvatarURL({format: 'png', dynamic: true, size: 512}))
+        .setFooter(version, picture)
+        .setTimestamp()
+      message.channel.send(embed2);
     });
   },
 };
