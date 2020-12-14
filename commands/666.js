@@ -7,14 +7,14 @@ module.exports = {
     aliases: ['wewilltakeover'],
     execute(message, args){
         const 666Embed = new MessageEmbed()
-        .setTitle("666")
-        .addField("666", "666")
-        .addField("666", "666")
-        .addField("666", "666")
-        .addField("666", "666")
-        .setColor("#ff0000")
-        .setFooter("666", `${picture}`)
-        .setTimestamp()
+            .setTitle("666")
+            .addField("666", "666")
+            .addField("666", "666")
+            .addField("666", "666")
+            .addField("666", "666")
+            .setColor("#ff0000")
+            .setFooter("666", `${picture}`)
+            .setTimestamp()
         message.channel.send(666Embed);
     }
 };
