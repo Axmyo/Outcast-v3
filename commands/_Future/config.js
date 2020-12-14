@@ -4,7 +4,7 @@ module.exports = {
 	name: "config",
 	description: "Configure Outcast for your server.",
 	cooldown: 0,
-	aliases: [],
+	aliases: [""],
 	guildonly: true,
 	execute(message, args) {
 		let setting = args[0];
@@ -19,7 +19,7 @@ module.exports = {
 			.setDescription(`Successfully created and configured new mute role:\nName: ${name}\nColor: ${color}\n`)
 			.setFooter(version, picture)
 			.setTimestamp()
-			.setColor("#ff0000")
+			.setColor("#FF0000")
 			message.channel.send(MuteRolePrompt)
 			guild.roles.create({name: name, color: color, permissions: })
 			},
