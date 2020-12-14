@@ -1,36 +1,29 @@
-const { MessageEmbed } = require('discord.js');
-const db = require('quick.db');
-const { owner, version, picture } = require('../OutcastAssets/config.json');
-
+const { MessageEmbed } = require("discord.js");
+const db = require("quick.db");
+const { owner, version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
-	name: 'blacklisted',
-	description: 'Check who is blacklisted and why.',
+	name: "blacklisted",
+	description: "Check who is blacklisted and why.",
 	cooldown: 0,
-	aliases: ['bllogs', 'devlogs'],
+	aliases: ["bllogs", "devlogs"],
 	execute(message, args) {
 		if (!owner.includes(message.author.id)) { // ...
 		        const PermissionEmbed = new MessageEmbed()
-			.setTitle('Error: Missing Permisssions')
-			.addField('Error Code:', '403: Forbidden')
-			.addField('Missing Permission:', '\`\`BOT_OWNER\`\`')
-			.setFooter(`${version}`, `${picture}`)
-			.setTimestamp()
-			.setColor("#FF0000")
-        		message.channel.send(PermissionEmbed);
-        		return
+				.setTitle("Error: Missing Permisssions")
+				.addField("Error Code:", "403: Forbidden")
+				.addField("Missing Permission:", '\`\`BOT_OWNER\`\`')
+				.setFooter(version, picture)
+				.setTimestamp()
+				.setColor("#FF0000")
+        		return message.channel.send(PermissionEmbed);
       			};
-					
 		if (owner.includes(message.author.id)) { // ...
-			const blacklist = new db.table('blacklist'); // make a new db table
-			console.log(blacklist.all());
-
-		
-		
+			const blacklist = new db.table('blacklist'); // make a new db table		
 			const LogsEmbed = new MessageEmbed()
 			.setTitle("Blacklisted Users")
 			.setDescription(JSON.stringify(blacklist.all))
 			.setTimestamp()
-			.setFooter(`${version}`, `${picture}`)
+			.setFooter(version, picture)
 			.setColor("#00000")
 			message.channel.send(LogsEmbed);
 		}
