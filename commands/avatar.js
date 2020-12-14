@@ -1,10 +1,10 @@
-const { MessageEmbed } = require('discord.js');
-const { version, picture } = require('../OutcastAssets/config.json');
+const { MessageEmbed } = require("discord.js");
+const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
-  name: 'avatar',
-  description: 'Get the avatar URL of the tagged user(s), or your own avatar.',
+  name: "avatar",
+  description: "Get the avatar URL of the tagged user(s), or your own avatar.",
   cooldown: 5,
-  aliases: ['icon', 'pfp'],
+  aliases: ["icon", "pfp"],
   execute(message, args) {
     let member = message.mentions.members.first();     
     if (!member) { // ...
