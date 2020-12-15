@@ -6,7 +6,7 @@ module.exports = {
   description: "Look at random cat pics, courtesy of random.cat/meow",
   cooldown: 5,
   aliases: ["kitty", "kitten"],
-  execute(message, args){
+  execute(message){
       const link = "https://aws.random.cat/meow";
       fetch(link)
         .then(res => res.json())
