@@ -5,7 +5,7 @@ module.exports = {
     name: "work",
     description: "Work for money with this command.",
     cooldown: 5,
-    execute(message, args) {
+    execute(message) {
         const GuildID = message.guild.id;
         const guildID = new db.table(GuildID);
         
