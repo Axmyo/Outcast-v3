@@ -3,10 +3,9 @@ const fetch = require("node-fetch");
 const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
   name:  "goat",
-  description: "Look at random goat pics, courtesy of placegoat.com.",
+  description: "Look at random goat pics, courtesy of the GooatBot API.",
   cooldown: 5,
-  aliases: [],
-  execute(message, args){
+  execute(message){
     const link = "https://placegoat.com/200/200";
     fetch(link)
     .then(res => res.json())
@@ -15,7 +14,7 @@ module.exports = {
         	.setColor("#ffffff")
         	.setTitle("Goat!")
         	.setImage(body.file)
-        	.setFooter(`${version}`, `${picture}`)
+        	.setFooter(version, picture)
         	.setTimestamp()
         message.channel.send(GoatEmbed);
     });
