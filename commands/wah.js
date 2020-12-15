@@ -6,7 +6,7 @@ module.exports = {
 	description: "Get some wahs, courtesy of somerandomapi",
 	cooldown: 5,
 	aliases: ["redpanda"],
-	execute(message, args) {
+	execute(message) {
 		const link = "https://some-random-api.ml/img/red_panda";
         	fetch(link)
         	.then(res => res.json())
