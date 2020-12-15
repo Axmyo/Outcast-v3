@@ -5,8 +5,8 @@ module.exports = {
   name:  "fox",
   description: "Look at random fox pics, courtesy of randomfox.ca",
   cooldown: 5,
-  aliases: ['foxxo'],
-  execute(message, args){
+  aliases: ["foxxo"],
+  execute(message){
       const link = "https://api.outcastcorp.us/fox/floof/";
       fetch(link)
       .then(res => res.json())
