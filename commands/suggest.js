@@ -5,7 +5,7 @@ module.exports = {
     name: "suggest",
     description: "Suggest command ideas for the bot!",
     cooldown: 43200,
-    aliases: ['submitsuggestion'],
+    aliases: ["submitsuggestion"],
     guildonly: true,
     async execute(message, args) { // ...
         const Suggestion = args.slice(0).join(' ');
