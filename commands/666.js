@@ -5,8 +5,8 @@ module.exports = {
     description: "666",
     cooldown: 5,
     aliases: ["wewilltakeover"],
-    execute(message, args){
-        const 666Embed = new MessageEmbed()
+    execute(message){
+        const Embed = new MessageEmbed()
             .setTitle("666")
             .addField("666", "666")
             .addField("666", "666")
@@ -15,6 +15,6 @@ module.exports = {
             .setColor("#FF0000")
             .setFooter("666", picture)
             .setTimestamp()
-        message.channel.send(666Embed);
+        message.channel.send(Embed);
     }
 };
