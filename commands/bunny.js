@@ -4,9 +4,9 @@ const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
   name:  "bunny",
   description: "Look at bunny pics, courtesy of the random animals API.",
-  cooldown: '5',
-  aliases: ['rabbit'],
-  async execute(message, args){
+  cooldown: 5,
+  aliases: ["rabbit"],
+  async execute(message){
   await animals.bunny().then(url => {
     const BunnyEmbed = new MessageEmbed()
     .setColor("#FFD700")
