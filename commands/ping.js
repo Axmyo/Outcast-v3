@@ -5,7 +5,7 @@ module.exports = {
         description: "Check Discord\'s API Ping and my ping.",
         cooldown: 5,
         aliases: ["latency"],
-        async execute(message, args) {
+        async execute(message) {
                 const m = await message.channel.send("Ping!");
                 message.channel.bulkDelete(1, true)
                 const PingEmbed = new MessageEmbed()
