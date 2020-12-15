@@ -26,7 +26,7 @@ module.exports = {
 					.setFooter(version, picture)
 					.setColor("#FF0000")
 					.setTimestamp()
-					message.channel.send(UsedSpaceInsteadOfFlagEmbed);
+					return message.channel.send(UsedSpaceInsteadOfFlagEmbed);
 			      	};
     				if (setting) {
       					if (setting === "set") {
@@ -34,10 +34,10 @@ module.exports = {
 						const SetSuccessEmbed = new MessageEmbed()
 						.setTitle("Success!")
 						.setDescription(`Successfully set ${message.guild.name}\`s prefix to ${providedPrefix}.`)
-						.setFooter(`${version}`, `${picture}`)
+						.setFooter(version, picture)
 						.setColor("#39FF14")
 						.setTimestamp()
-						message.channel.send(SetSuccessEmbed);
+						return message.channel.send(SetSuccessEmbed);
       					}
 					if (setting === "reset") {
 						await guildDB.delete(`${message.channel.guild.id}.prefix`);
@@ -47,8 +47,7 @@ module.exports = {
 						.setFooter(version, picture)
 						.setColor("#39FF14")
 						.setTimestamp()
-						message.channel.send(ResetSuccessEmbed);
-						return;
+						return message.channel.send(ResetSuccessEmbed);
 					}
 			    	};    
 			}
