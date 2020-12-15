@@ -10,18 +10,19 @@ module.exports = {
   await animals.bunny().then(url => {
     const BunnyEmbed = new MessageEmbed()
     .setColor("#FFD700")
-    .setTitle(`Bunny!`)
-    .setDescription(`**[image link](${url})**`)
+    .setTitle("Bunny!")
+    .setDescription(`**Image Link:** ${url}`)
     .setImage(url)
-    .setFooter(`${version}`, `${picture}`)
+    .setFooter(version, picture)
     .setTimestamp()
     message.channel.send(BunnyEmbed);
     }).catch((error) => {
       console.error(error)
       const ErrorEmbed = new MessageEmbed()
       .setTitle("Error!")
-      .setDescription(`An (expected) error has occured. Error: \n${error}\n`)
-      .setFooter(`${version}`, `${picture}`)
+      .setDescription("An error has occured.")
+      .addField("Error:", error)
+      .setFooter(version, picture)
       .setTimestamp()
       .setColor("#FF0000")
       message.channel.send(ErrorEmbed);
