@@ -12,7 +12,7 @@
 * **Required User Permissions:** BAN_MEMBERS
 * **Aliases:** N/A
 * **Description:** Ban users from the server.  
-* **Usage:** Outcast ban @Ash.#7028
+* **Usage:** Outcast ban @Ash.#7028 {reason}
 
 ### kick
 * **Description:** Kick users from the server.
