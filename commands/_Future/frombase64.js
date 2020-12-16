@@ -7,7 +7,7 @@ module.exports = {
   cooldown: 5,
   execute(message, args){
     const input = args.join(' ');
-    const link = "https://some-random-api.ml/base64?decode=aGVsbG8=" + input;
+    const link = "https://some-random-api.ml/base64?decode=" + input;
     fetch(link)
       .then(res => res.json())
       .then(body => {
