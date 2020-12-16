@@ -2,10 +2,11 @@ const { MessageEmbed } = require('discord.js');
 const fetch = require("node-fetch");
 const { version, picture } = require("../OutcastAssets/config.json");
 module.exports = {
-  name:  "frombase64",
+  name:  "base64",
   description: "Decode from Base64, courtesy of SomeRandomAPI.",
   cooldown: 5,
   execute(message, args){
+    const setting = args[1];
     const input = args.join(' ');
     const link = "https://some-random-api.ml/base64?decode=" + input;
     fetch(link)
