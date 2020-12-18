@@ -37,14 +37,14 @@ module.exports = {
 			};
 			let e6 = new yiff.e621(config);
 			await e6.request(`${required}`).then(res => {
-				const embed = new MessageEmbed()
+				const YiffEmbed = new MessageEmbed()
 				.setColor("#FF0000")
 				.setTitle("Yiff")
-				.setDescription(`**Image Link:** \n ${res.page}`)
+				.setDescription(`**Image Link:**\n${res.page}`)
 				.setImage(res.image)
 				.setFooter(version, picture)
 				.setTimestamp()
-				message.channel.send(embed);
+				message.channel.send(YiffEmbed);
 			});
 		}
 	}
