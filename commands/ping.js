@@ -9,7 +9,7 @@ module.exports = {
                 const m = await message.channel.send("Ping!");
                 message.channel.bulkDelete(1, true)
                 const PingEmbed = new MessageEmbed()
-                .setTitle("Outcast")
+                .setAuthor(message.author.tag, message.author.displayAvatarURL())
                 .addField("Bot Latency:", `${Math.round(m.createdTimestamp - message.createdTimestamp)} ms`)
                 .addField("API Latency:", `${Math.round(message.client.ws.ping)} ms`)
                 .setColor("#FF0000")
