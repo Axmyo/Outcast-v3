@@ -6,7 +6,7 @@ module.exports = {
     cooldown: 5,
     aliases: ["wewilltakeover"],
     execute(message){
-        const Embed = new MessageEmbed()
+        const CursedEmbed = new MessageEmbed()
             .setTitle("666")
             .addField("666", "666")
             .addField("666", "666")
@@ -15,6 +15,6 @@ module.exports = {
             .setColor("#FF0000")
             .setFooter("666", picture)
             .setTimestamp()
-        message.channel.send(Embed);
+        message.channel.send(CursedEmbed);
     }
 };
