@@ -1,6 +1,6 @@
-const { Client, MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { owner, version, picture } = require("../OutcastAssets/config.json");
-const db = require ("quick.db"); // ES5 module
+const db = require ("quick.db");
 module.exports = {
 	name: "blacklist",
 	description: "BAN BAN BAN",
@@ -10,8 +10,7 @@ module.exports = {
 		if (!owner.includes(message.author.id)) { // ...				
 			const PermissionEmbed = new MessageEmbed()
 				.setTitle("Error: Missing Permisssions")
-				.addField("Error Code:", "403: Forbidden")
-				.addField("Missing Permission:", '\`\`BOT_OWNER\`\`')
+				.addFields({name: "Error Code:", value: "403: Forbidden"}, {name: "Missing Permission:", value: "\`\`BOT_OWNER\`\`"})
 				.setFooter(version, picture)
 				.setTimestamp()
 				.setColor("#FF0000")
@@ -32,15 +31,14 @@ module.exports = {
 			let isBlacklisted = blacklist.fetch (user);
 			if (isBlacklisted !== null) {
 				const ExistenentialEmbed = new MessageEmbed()
-					.setTitle('Error: User Already Exists In Database')
-					.addField("Error Code:", "409: Resource already exists in the database.")
-					.addField("Error Description:", "The user has already been blacklisted you DUNCE.")
+					.setTitle("Error: User Already Exists In Database")
+					.addFields({name: "Error Code:", value: "409: User already exists in the database."}, {name: "Error Description:", value: "The user has already been blacklisted you DUNCE."})
 					.setFooter(version, picture)
 					.setTimestamp()
 					.setColor("#FF0000")
 				return message.channel.send(ExistenentialEmbed);
 			}
-			blacklist.set (user, true, reason);
+			blacklist.set(user, true, reason);
 
 			const SuccessEmbed = new MessageEmbed()
 				.setTitle("Success!")
