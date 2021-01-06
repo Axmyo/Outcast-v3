@@ -5,13 +5,12 @@ module.exports = {
 	name: "blacklisted",
 	description: "Check who is blacklisted and why.",
 	cooldown: 0,
-	aliases: ["bllogs", "devlogs"],
+	aliases: ["bllogs", "gbanlogs"],
 	execute(message, args) {
 		if (!owner.includes(message.author.id)) { // ...
 		        const PermissionEmbed = new MessageEmbed()
 				.setTitle("Error: Missing Permisssions")
-				.addField("Error Code:", "403: Forbidden")
-				.addField("Missing Permission:", '\`\`BOT_OWNER\`\`')
+				.addFields({name: "Error Code:", value: "403: Forbidden"}, {name: "Missing Permission:", value: '\`\`BOT_OWNER\`\`'})
 				.setFooter(version, picture)
 				.setTimestamp()
 				.setColor("#FF0000")
