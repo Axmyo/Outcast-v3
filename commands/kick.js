@@ -1,68 +1,68 @@
 const { MessageEmbed } = require('discord.js');
 const { version, picture } = require('../OutcastAssets/config.json');
 module.exports = {
-	name: 'kick',
-	description: 'Kicks a member out of a server.',
+	name: "kick",
+	description: "Kicks a member out of a server.",
+	cooldown: 0,
 	async execute(message, args) {
 			if (!message.member.hasPermission("KICK_MEMBERS")) {
-				const PermissionEmbed = new MessageEmbed();
-				PermissionEmbed.setTitle('Error: Missing Permisssions'),
-				PermissionEmbed.addField('Error Code:', '403: Forbidden'),
-				PermissionEmbed.addField('Missing Permission:', '\`\`MANAGE_MESSAGES\`\`'),
-				PermissionEmbed.setFooter(`${version}`, `${picture}`),
-				PermissionEmbed.setTimestamp(),
-				PermissionEmbed.setColor('ff0000'),
-				message.channel.send(PermissionEmbed);
+				const PermissionEmbed = new MessageEmbed()
+					.setTitle("Error: Missing Permisssions")
+					.addFields({name: "Error Code:", value: "403: Forbidden"}, {name: "Missing Permission:", value: "\`\`KICK_MEMBERS\`\`"})
+					.setFooter(version, picture)
+					.setTimestamp()
+					.setColor("#FF0000")
+				return message.channel.send(PermissionEmbed);
 			};	
 			if (message.member.hasPermission("KICK_MEMBERS")) {
 			const user = message.mentions.users.first();
-			const reason = args.slice(1).join(' ');
+			let reason1 = args.slice(1).join(' ');
+			if(!reason1) {
+				reason1 = "No Reason Provided.";
+			}
+			const reason = `${message.author}: ${reason}`;
 			if (user) {
 			  const member = message.guild.member(user);
 			  if (member) {
 				member
-				  .kick(`${message.author.tag}:${reason}`)
+				  .kick(`${message.author.tag}: ${reason}`)
 				  .then(() => {
-					const SuccessEmbed = new MessageEmbed();
-					SuccessEmbed.setTitle("Success!"),
-					SuccessEmbed.setDescription(`Successfully kicked ${member}: ${reason}.`),
-					SuccessEmbed.setFooter(`${version}`, `${picture}`),
-					SuccessEmbed.setTimestamp(),
-					SuccessEmbed.setColor('00FF00'),
+					const SuccessEmbed = new MessageEmbed()
+					SuccessEmbed.setTitle("Success!")
+						.setDescription(`Successfully kicked ${member}: ${reason}.`)
+						.setFooter(version, picture)
+						.setTimestamp()
+						.setColor('00FF00')
 					message.channel.send(SuccessEmbed);
 				  })
 				  .catch(err => {
-					const ErrorEmbed = new MessageEmbed();
-					ErrorEmbed.setTitle("Error."),
-					ErrorEmbed.setDescription("An unexpected error has occcured."),
-					ErrorEmbed.addField("Error (Give to my support team please):", `${err}`),	
-					ErrorEmbed.setFooter(`${version}`, `${picture}`)
-					ErrorEmbed.setTimestamp(),
+					const ErrorEmbed = new MessageEmbed()
+						.setTitle("Error:")
+						.setDescription("An unexpected error has occcured.")
+						.addField("Error:", err)
+						.setFooter(version, picture)
+						.setTimestamp()
 					message.channel.send(ErrorEmbed);
 					console.error(`${guild.id}: ${err}`);
 				  });
 			  } else {
-				const Error2 = new MessageEmbed();
-				Error2.setTitle('Error: Not Found'),
-				Error2.addField('Error Code:', '404: Not Found'),
-				Error2.addField('Error Description:', 'The user you mentioned either doesn\'t exist or isn\'t in the guild.'),
-				Error2.setFooter(`${version}`, `${picture}`),
-				Error2.setTimestamp(),
-				Error2.setColor('ff0000'),
-				message.channel.send(Error2);			  }
+				const Error2 = new MessageEmbed()
+					.setTitle("Error: Not Found")
+					.addFields({name: "Error Code:", value: "404: Not Found"}, {name: "Error Description:", value: "The user you mentioned either doesn\'t exist or isn\'t in the guild."})
+					.setFooter(version, picture)
+					.setTimestamp()
+					.setColor("#FF0000")
+				message.channel.send(Error2);			  
+			}
 			} else {
-				const Error3 = new MessageEmbed();
-				Error3.setTitle('Error: No User Mentioned'),
-				Error3.addField('Error Code:', '1000'),
-				Error3.addField('Error Description:', 'You didn\'t mention a user to kick.'),
-				Error3.setFooter(`${version}`, `${picture}`),
-				Error3.setTimestamp(),
-				Error3.setColor('ff0000'),
-				message.channel.send(Error3);			
-}
-				if(reason === null) {
-					let reason = "No Reason Provided.";
-				}
-		  }
+				const Error3 = new MessageEmbed()
+					.setTitle("Error: No User Mentioned")
+					.addFields({name: "Error Code:", value: "1000"}, {name: "Error Description:", value: "You didn\'t mention a user to kick."})
+					.setFooter(version, picture)
+					.setTimestamp()
+					.setColor("#FF0000")
+				message.channel.send(Error3);
+			}
+		}
 	},
 };
