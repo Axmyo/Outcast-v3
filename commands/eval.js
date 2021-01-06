@@ -8,8 +8,7 @@ module.exports = {
     if (!owner.includes(message.author.id)) { // ...
       const PermissionEmbed = new MessageEmbed()
         .setTitle("Error: Missing Permisssions")
-        .addField("Error Code:", '403: Forbidden')
-        .addField("Missing Permission:", '\`\`BOT_OWNER\`\`')
+        .addFields({name: "Error Code:", value: "403: Forbidden"}, {name: "Missing Permission:", value: "\`\`BOT_OWNER\`\`"})
         .setFooter(version, picture)
         .setTimestamp()
         .setColor("#FF0000")
@@ -23,8 +22,8 @@ module.exports = {
         if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
 
         const OutputEmbed = new MessageEmbed()
-          .setTitle("Output:")
-          .setDescription(evaled)
+          .setAuthor(message.author.tag, message.author.displayAvatarURL())
+          .addFields({name: "Input:", value: code}, {name: "Output:", value: evaled})
           .setFooter(version, picture)
           .setTimestamp()
         message.channel.send(OutputEmbed);
