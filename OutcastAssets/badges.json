@@ -1,6 +1,7 @@
 {
-  "": ["", ""],
-  "": ["", ""],
-  "": ["", ""],
-  "": ["", ""],
+  "BOT_OWNER": ["", ""],
+  "CONTRIBUTER": ["", ""],
+  "FORMER_STAFF": ["", ""],
+  "OUTCASTCORP_DEVELOPER": ["", ""],
+  "STAFF": ["", ""],
 }
