@@ -1,15 +1,32 @@
 {
-  "name": "bloxtel",
+  "name": "outcast-v3",
   "version": "3.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Asher#7028",
+  "author": "Ash.#7028",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0",
-    "node-fetch": "^2.6.1"
-  }
+    "bfdapi.js": "^2.0.1",
+    "dblapi.js": "^2.4.1",
+    "discord.js": "^12.3.1",
+    "minimalist": "^1.0.0",
+    "node-fetch": "^2.6.1",
+    "quick.db": "^7.1.2",
+    "random-animals-api": "^1.2.0",
+    "systeminformation": "^4.28.1",
+    "yiff": "^2.0.2",
+    "ytdl-core": "^3.2.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OutcastCorp/Outcast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OutcastCorp/Outcast/issues"
+  },
+  "homepage": "https://github.com/OutcastCorp/Outcast#readme",
+  "description": ""
 }
